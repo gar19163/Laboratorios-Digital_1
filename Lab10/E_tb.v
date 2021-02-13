@@ -13,11 +13,7 @@ output wire[7:0]Program_byte;
 output wire[3:0]instruccion;
 output wire[3:0]operando;
 
-preparacion part1(clk, reset,
-								  loadCounter, ena_load_counter,
-									enabledCounter,  enabled_fetch,
-									dato,
-									Program_byte, instruccion, operando );
+preparacion part1(clk, reset, loadCounter, ena_load_counter, enabledCounter, enabled_fetch, dato,Program_byte, instruccion, operando );
 
 initial begin
 	$display(" ");
@@ -42,11 +38,7 @@ reg [2:0]opcion;
 wire [3:0]salida;
 wire carry, zero;
 
-operacion calculos (clk, reset,
-									  dato_a_meter,
-									  enabled_datoIn, enabled_datoOut, enabled_acumulador,
-										opcion,
-										salida, carry, zero);
+operacion calculos (clk, reset, dato_a_meter, enabled_datoIn, enabled_datoOut, enabled_acumulador, opcion, salida, carry, zero);
 initial begin
   enabled_acumulador = 0; enabled_datoIn = 1; enabled_datoOut = 0; #1 enabled_acumulador = 1;
 

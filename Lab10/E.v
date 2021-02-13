@@ -1,7 +1,6 @@
 //Ejerccicio 1
 //couenter
-module counter #(parameter N=12)
-		(input logic clk, input logic reset, input logic load, input logic enabled, input [11:0] d, output logic [N-1:0]q);
+module counter (input logic clk, input logic reset, input logic load, input logic enabled, input [11:0] d, output logic [11:0]q);
 
 always@(posedge clk, posedge reset)
 	if(reset)
@@ -19,7 +18,7 @@ module memoria_ROM (input wire [11:0]addres, output wire [7:0]data);
 	reg [7:0]mem[0:4095];
 
 initial begin
-	$readmemb("memoria.list",mem);
+	$readmemb("memory.list",mem);
 end
 
 assign data = mem[addres];
@@ -44,6 +43,7 @@ module fetch(input clk, input reset, input ena, input [7:0]d, output reg [3:0]in
 				instruccion <= d[7:4];
 			end
 	end
+	assign
 endmodule
 
 
@@ -153,7 +153,7 @@ module operacion(input clk, input reset, input [3:0]dato_in, input enabled_tri_1
 
 	wire [3:0]salida_bufer_in;
 
-	buftri datos_entrada(enabled_tri_1, dato_in, salida_bufer_in);
+	buftri datos_entrada(  , dato_in, salida_bufer_in);
 
 
 	wire [3:0]salida_alu;
